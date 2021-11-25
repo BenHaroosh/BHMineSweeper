@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  color: white;
+  border-bottom: white dotted 5px;
+  width: 250px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+body {
+  margin: auto;
+  text-align: center;
+  height: 650px;
+  background-image: url("../img/4.png");
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
+}
+
+table {
+  margin: auto;
+  margin-top: 5px;
+  background-color: black;
+}
+
+.cell {
+  background-color: white;
+  border: tan solid 2px;
+  border-radius: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+.cell:hover {
+  background-color: aqua;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+button {
+  color: white;
+  background-color: lightseagreen;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: lightskyblue;
+}
+
+.modal {
+  position: absolute;
+  border-radius: 10px;
+  top: 17%;
+  right: 42%;
+  background-color: gold;
+  color: black;
+  height: 100px;
+  width: 200px;
+  display: none;
+}
+
+.modal-btn {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+
+.restart {
+  margin: auto;
+  display: block;
+  height: 40px;
+}
+
+.restart:hover {
+  cursor: pointer;
+  background-color: wheat;
+}
+
+.lives {
+  color: white;
+  border-bottom: lightseagreen dotted 5px;
+  position: absolute;
+  top: 12%;
+  right: 37%;
+}
+
+.hint {
+  position: absolute;
+  top: 12%;
+  right: 30%;
+}
+
+.hint:hover {
+  cursor: pointer;
+}
+
+.mine {
+  background-color: white;
+  border: tan solid 2px;
+  border-radius: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+.mine:hover {
+  background-color: aqua;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.safe-btn {
+  height: 30px;
+  background-color: yellow;
+  color: black;
+  /* width: 100px; */
+}
+
+h5 {
+  color: aliceblue;
+  display: inline-block;
+}
+
+.time {
+  color: white;
+  position: absolute;
+  top: 12%;
+  left: 40%;
+}
+
+p {
+  display: inline;
+  color: white;
+}
+
