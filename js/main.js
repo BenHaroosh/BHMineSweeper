@@ -353,20 +353,20 @@ function showLocalStorage() {
     var elRecordExpert = document.querySelector('.expert')
 
     if (!localStorage.getItem("Record Time Easy:")) {
-        elRecordEasy.innerText = `*Easy Record`
+        elRecordEasy.innerText = `*Easy Time Record:`
     } else {
-        elRecordEasy.innerText = `*Easy Record ${localStorage.getItem("Record Time Easy:")}s`
+        elRecordEasy.innerText = `*Easy Time Record: ${localStorage.getItem("Record Time Easy:")}s`
     }
     if (!localStorage.getItem("Record Time Hard:")) {
-        elRecordHard.innerText = `*Hard Record`
+        elRecordHard.innerText = `*Hard Time Record:`
     } else {
-        elRecordHard.innerText = `*Hard Record ${localStorage.getItem("Record Time Hard:")}s`
+        elRecordHard.innerText = `*Hard Time Record: ${localStorage.getItem("Record Time Hard:")}s`
     }
 
     if (!localStorage.getItem("Record Time Expert:")) {
-        elRecordExpert.innerText = `*Expert Record`
+        elRecordExpert.innerText = `*Expert Time Record:`
     } else {
-        elRecordExpert.innerText = `*Expert Record ${localStorage.getItem("Record Time Expert:")}s`
+        elRecordExpert.innerText = `*Expert Time Record: ${localStorage.getItem("Record Time Expert:")}s`
     }
 }
 
