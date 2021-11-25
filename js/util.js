@@ -1,5 +1,5 @@
 'use strict'
-// console.log('hi');
+
 
 function createMat(ROWS, COLS) {
     var mat = []
@@ -88,16 +88,10 @@ function renderBoard(mat, selector) {
 
 function startTimeInterval() {
     var gStartTime = Date.now()
-    // console.log('gStartTime', gStartTime)
-    // console.log(gStartTime);
 
     gTimeIntervalID = setInterval(function () {
         var elTimer = document.querySelector('.timeClock')
-        // console.log(elTimer);
         var miliSecs = Date.now() - gStartTime
-        // console.log('miliSecs/1000:', miliSecs/1000);
-        // console.log('miliSecs:', miliSecs);
-
         elTimer.innerText = `${((miliSecs) / 1000).toFixed()}`
     }, 1000)
 }

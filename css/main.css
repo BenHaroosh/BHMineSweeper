@@ -16,7 +16,6 @@ body {
   height: 650px;
   background-image: url("../img/4.png");
   background-size: contain;
-  /* background-repeat: no-repeat; */
   background-attachment: fixed;
 }
 
@@ -119,7 +118,6 @@ button:hover {
   height: 30px;
   background-color: yellow;
   color: black;
-  /* width: 100px; */
 }
 
 h5 {
