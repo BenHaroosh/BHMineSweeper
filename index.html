@@ -11,7 +11,6 @@
 
 <body onload="init()">
     <h1>MineSweeper💥</h1>
-    <h2>ttt</h2>
     <button onclick="setLevel(4,2)">Easy</button>
     <p class="easy"> *Easy Record </p>
     <button onclick="setLevel(8,12)">Hard</button>
@@ -19,29 +18,30 @@
     <button onclick="setLevel(12,30)">Expert</button>
     <p class="expert"> *Expert Record </p>
     <img src="img/1.gif" class="restart" onclick="restart()"> </img>
-    <h3 class="time">Time: <p class="timeClock"></p></h3>
+    <h3 class="time">Time: <p class="timeClock"></p>
+    </h3>
     <h3 class="lives"><span>3</span> LIVES LEFT!</h3>
     <!-- <h3 class="hint" data-i ="" data-j="" onclick="getHint()">🔍🔍🔍</h3> -->
     <div class=" safe">
         <button class="safe-btn" onclick="safeBtn()">SAFE BUTTON👓</button>
         <h5><span class="clicks">3</span> CLICKS LEFT!</h5>
-        </div>
+    </div>
 
 
-        <div class="modal">
-            <h3></h3>
-            <button class="modal-btn" onclick="removeModal()"></button>
-        </div>
-        <div>
-            <table>
-                <tbody class="container">
+    <div class="modal">
+        <h3></h3>
+        <button class="modal-btn" onclick="removeModal()"></button>
+    </div>
+    <div>
+        <table>
+            <tbody class="container">
 
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
+    </div>
 
-        <script src="js/util.js"></script>
-        <script src="js/main.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
