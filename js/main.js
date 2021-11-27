@@ -315,17 +315,17 @@ function getLocalStorage() {
     if (gLevel.SIZE === 4 && elTimer.innerText < localStorage.getItem("Record Time Easy:") ||
         gLevel.SIZE === 4 && !localStorage.getItem("Record Time Easy:")) {
         localStorage.setItem("Record Time Easy:", `${elTimer.innerText}`);
-        elRecordEasy.innerText = `*Easy Record ${localStorage.getItem("Record Time Easy:")}s`
+        elRecordEasy.innerText = `*Easy Time Record: ${localStorage.getItem("Record Time Easy:")}s`
     }
     if (gLevel.SIZE === 8 && elTimer.innerText < localStorage.getItem("Record Time Hard:") ||
         gLevel.SIZE === 8 && !localStorage.getItem("Record Time Hard:")) {
         localStorage.setItem("Record Time Hard:", `${elTimer.innerText}`);
-        elRecordHard.innerText = `*Hard Record ${localStorage.getItem("Record Time Hard:")}s`
+        elRecordHard.innerText = `*Hard Time Record: ${localStorage.getItem("Record Time Hard:")}s`
     }
     if (gLevel.SIZE === 12 && elTimer.innerText < localStorage.getItem("Record Time Expert:") ||
         gLevel.SIZE === 12 && !localStorage.getItem("Record Time Expert:")) {
         localStorage.setItem("Record Time Expert:", `${elTimer.innerText}`);
-        elRecordExpert.innerText = `*Expert Record ${localStorage.getItem("Record Time Expert:")}s`
+        elRecordExpert.innerText = `*Expert Time Record: ${localStorage.getItem("Record Time Expert:")}s`
     }
 
 }
