@@ -9,6 +9,8 @@ var MARKED = '🚩'
 var EMPTY = ''
 var gLifeLeft = 3
 var gSafe = 3
+var gIsHint = false
+var gHintClick = 3
 
 
 var gLevel = {
@@ -31,26 +33,12 @@ var gGame = {
 
 
 function init() {
-    var elDiv = document.querySelector('.safe')
-    var elSafeSpan = elDiv.querySelector('h5 span')
-    var elImg = document.querySelector('.restart')
-    var elSpan = document.querySelector('span')
-    var elTimer = document.querySelector('.timeClock')
-    elImg.src = `img/1.gif`
-    gGame.isOn = true
-    gMineClicked = 0
-    gFirstClick = 0
-    gGame.markedCount = 0
-    gGame.shownCount = 0
-    gLifeLeft = 3
-    gSafe = 3
-    elSafeSpan.innerText = gSafe
-    elSpan.innerText = gLifeLeft
-    elTimer.innerText = ''
+    reset()
     showLocalStorage()
     gBoard = buildBoard()
     renderBoard(gBoard)
     clearInterval(gTimeIntervalID)
+    changeHintText()
 }
 
 function renderBoard(board) {
@@ -113,16 +101,42 @@ function cellClicked(elCell, i, j) {
         var firstElCell = document.querySelector(`[data-i="${pos.i}"][data-j="${pos.j}"]`)
         var res = setMinesNegsCount(i, j, gBoard)
         firstElCell.innerText = res
+        getColor(res, firstElCell)
+
         if (res === 0) {
             expandShown(gBoard, i, j)
             firstElCell.innerText = EMPTY
         }
+    } else {
+
+        if (gIsHint) {
+            if (!gBoard[i][j].isShown) {
+                gBoard = openNegs(i, j, gBoard)
+                setTimeout(function () {
+                    closeNegs(i, j, gBoard)
+                    elCell.innerText = EMPTY
+                    gBoard[i][j].isShown = false
+                    elCell.style.backgroundColor = 'white'
+
+                }, 1000)
+                gHintClick--
+                changeHintText()
+                gIsHint = false
+                return;
+            } else {
+                return;
+            }
+        }
     }
 
+
     if (!gBoard[i][j].isShown) {
+        gBoard[i][j].minesAroundCount = 0
         var res = setMinesNegsCount(i, j, gBoard)
         elCell.innerText = res
         gBoard[i][j].isShown = true
+        getColor(res, elCell)
+
         if (res !== MINE) gGame.shownCount++
         if (res === MINE) {
             elSpan.innerHTML = `${--gLifeLeft}`
@@ -135,6 +149,8 @@ function cellClicked(elCell, i, j) {
         }
     }
 
+
+
     if (gTimeoutId) {
         clearTimeout(gTimeoutId)
         var pos = {
@@ -144,6 +160,9 @@ function cellClicked(elCell, i, j) {
         if (elCell.innerText === EMPTY) renderCell(pos, 'gray')
         if (elCell.innerText !== EMPTY) renderCell(pos, 'white')
     }
+
+
+
     checkGameOver()
 }
 
@@ -269,6 +288,7 @@ function expandShown(board, cellI, cellJ) {
                 elCell.innerText = res
                 gBoard[i][j].isShown = true
                 gGame.shownCount++
+                getColor(res, elCell)
                 if (res === 0) {
                     elCell.innerText = EMPTY
                     expandShown(gBoard, i, j)
@@ -338,3 +358,22 @@ function showLocalStorage() {
 }
 
 
+function reset() {
+    var elDiv = document.querySelector('.safe')
+    var elSafeSpan = elDiv.querySelector('h5 span')
+    var elImg = document.querySelector('.restart')
+    var elSpan = document.querySelector('span')
+    var elTimer = document.querySelector('.timeClock')
+    elImg.src = `img/1.gif`
+    gGame.isOn = true
+    gMineClicked = 0
+    gFirstClick = 0
+    gGame.markedCount = 0
+    gGame.shownCount = 0
+    gLifeLeft = 3
+    gSafe = 3
+    gHintClick = 3
+    elSafeSpan.innerText = gSafe
+    elSpan.innerText = gLifeLeft
+    elTimer.innerText = ''
+}

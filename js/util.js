@@ -143,3 +143,122 @@ function buildBoard() {
 
     return board;
 }
+
+
+function getColor(res, elCell) {
+    switch (res) {
+        case res = 1:
+            elCell.style.color = 'blue';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case res = 2:
+            elCell.style.color = 'green';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case res = 3:
+            elCell.style.color = 'red';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case res = 4:
+            elCell.style.color = 'aqua';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case res = 5:
+            elCell.style.color = 'black';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case res = 6:
+            elCell.style.color = 'gold';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case res = 7:
+            elCell.style.color = 'gray';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case res = 8:
+            elCell.style.color = 'black';
+            elCell.style.fontWeight = 'bold';
+            break;
+        default:
+            elCell.style.color = 'black';
+            elCell.style.fontWeight = 'bold';
+    }
+}
+
+
+
+
+
+
+function getHint() {
+    gIsHint = true
+}
+
+
+function changeHintText() {
+    var elHintText = document.querySelector('.hint')
+    switch (gHintClick) {
+        case gHintClick = 3:
+            elHintText.innerText = '🤞🤞🤞'
+            break;
+        case gHintClick = 2:
+            elHintText.innerText = '🤞🤞'
+            break;
+        case gHintClick = 1:
+            elHintText.innerText = '🤞'
+            break;
+        case gHintClick = 0:
+            elHintText.innerText = ''
+            break;
+    }
+}
+
+
+function openNegs(cellI, cellJ, board) {
+    for (var i = cellI - 1; i <= cellI + 1; i++) {
+        if (i < 0 || i >= board.length) continue;
+        for (var j = cellJ - 1; j <= cellJ + 1; j++) {
+            if (j < 0 || j >= board[i].length) continue;
+            gBoard[i][j].minesAroundCount = 0
+            if (board[i][j].isMine) board[cellI][cellJ].minesAroundCount++;
+
+            var elCell = document.querySelector(`[data-i="${i}"][data-j="${j}"]`)
+
+            if (gBoard[i][j].isShown) {
+                continue;
+            } else {
+                var res = setMinesNegsCount(i, j, gBoard)
+                elCell.innerText = res
+                if (!res) {
+                    elCell.innerText = EMPTY
+                    elCell.style.backgroundColor = 'gray'
+                }
+                getColor(res, elCell)
+            }
+        }
+    }
+    return gBoard
+}
+
+
+function closeNegs(cellI, cellJ, board) {
+
+    for (var i = cellI - 1; i <= cellI + 1; i++) {
+        if (i < 0 || i >= board.length) continue;
+        for (var j = cellJ - 1; j <= cellJ + 1; j++) {
+            if (j < 0 || j >= board[i].length) continue;
+
+            if (board[i][j].isMine) board[cellI][cellJ].minesAroundCount++;
+
+            var elCell = document.querySelector(`[data-i="${i}"][data-j="${j}"]`)
+
+            if (!gBoard[i][j].isShown) {
+                elCell.innerText = EMPTY
+                elCell.style.fontWeight = 'normal'
+                elCell.style.backgroundColor = 'white'
+                gBoard[i][j].minesAroundCount = 0
+            }
+
+        }
+    }
+}

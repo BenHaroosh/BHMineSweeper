@@ -4,7 +4,7 @@
 
 h1 {
   color: white;
-  border-bottom:goldenrod dotted 5px;
+  border-bottom: goldenrod dotted 5px;
   width: 250px;
   margin: auto;
   margin-bottom: 10px;
@@ -31,10 +31,10 @@ table {
   border-radius: 5px;
   height: 50px;
   width: 50px;
+  font-family: Arial;
 }
 
 .cell:hover {
-  background-color: aqua;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -92,8 +92,11 @@ button:hover {
 
 .hint {
   position: absolute;
-  top: 12%;
-  right: 30%;
+  top: 17%;
+  right: 33%;
+  text-shadow: 0px 0px 20px rgba(243, 239, 10, 0.801);
+  padding: 3px 6px;
+  font-size: 24px;
 }
 
 .hint:hover {
@@ -109,7 +112,6 @@ button:hover {
 }
 
 .mine:hover {
-  background-color: aqua;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -136,5 +138,3 @@ p {
   display: inline;
   color: white;
 }
-
-
