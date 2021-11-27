@@ -117,6 +117,7 @@ function cellClicked(elCell, i, j) {
                     elCell.innerText = EMPTY
                     gBoard[i][j].isShown = false
                     elCell.style.backgroundColor = 'white'
+                    gBoard[i][j].minesAroundCount = 0
 
                 }, 1000)
                 gHintClick--
