@@ -72,12 +72,7 @@ function cellMarked(elCell, event, i, j) {
         elCell.innerText = MARKED
         gGame.markedCount++
     }
-
-
-    if (gMineClicked === gLevel.MINES) return gameOver()
-    if (gGame.shownCount === ((gLevel.SIZE ** 2) - gLevel.MINES) &&
-        (gGame.markedCount === (Math.abs(gLevel.MINES - gMineClicked)))) return gameOver()
-
+    checkGameOver()
 }
 
 
